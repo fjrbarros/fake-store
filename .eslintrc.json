@@ -33,6 +33,20 @@
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "@typescript-eslint/explicit-module-boundery-types": "off"
+    "@typescript-eslint/explicit-module-boundery-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto",
+        "printWidth": 80,
+        "trailingComma": "all",
+        "semi": true,
+        "singleQuote": true,
+        "useTabs": false,
+        "tabWidth": 2,
+        "arrowParens": "avoid"
+      }
+    ]
   }
 }

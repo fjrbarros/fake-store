@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes as RouteWrapper, Route } from 'react-router-dom';
-import Home from '../pages/Home';
-import Cart from '../pages/Cart';
+import Home from '../pages/home/Home';
+import Shop from '../pages/shop/Shop';
 
 const Routes = () => {
   return (
     <BrowserRouter>
       <RouteWrapper>
         <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route path="/shop" element={<Shop />} />
       </RouteWrapper>
     </BrowserRouter>
   );

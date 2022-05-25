@@ -1,90 +1,53 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
+import { SearchInput, Link } from '..';
+import { AppBar as MuiBar } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import CssBaseline from '@mui/material/CssBaseline';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
-import Fab from '@mui/material/Fab';
-import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import Zoom from '@mui/material/Zoom';
+import { Title, Shop, FilterMenu, ThemeButton } from './components';
 
 interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
-  children?: React.ReactElement;
+  appBarBgColor?: string;
+  showButtonTheme?: boolean;
+  showButtonShop?: boolean;
 }
 
-function ScrollTop(props: Props) {
-  const { children, window } = props;
-  // Note that you normally won't need to set the window ref as useScrollTrigger
-  // will default to window.
-  // This is only being set here because the demo is in an iframe.
+const AppBar: React.FC<Props> = ({
+  appBarBgColor = '',
+  showButtonTheme = true,
+  showButtonShop = true,
+}) => {
   const trigger = useScrollTrigger({
-    target: window ? window() : undefined,
     disableHysteresis: true,
-    threshold: 100,
+    threshold: 0,
   });
 
-  const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
-    const anchor = (
-      (event.target as HTMLDivElement).ownerDocument || document
-    ).querySelector('#back-to-top-anchor');
-
-    if (anchor) {
-      anchor.scrollIntoView({
-        behavior: 'smooth',
-        block: 'center',
-      });
-    }
-  };
-
   return (
-    <Zoom in={trigger}>
-      <Box
-        onClick={handleClick}
-        role="presentation"
-        sx={{ position: 'fixed', bottom: 16, right: 16 }}
+    <>
+      <MuiBar
+        elevation={trigger ? 4 : 0}
+        sx={{ backgroundColor: appBarBgColor }}
       >
-        {children}
-      </Box>
-    </Zoom>
-  );
-}
-
-export default function BackToTop(props: Props) {
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <AppBar>
-        <Toolbar>
-          <Typography variant="h6" component="div">
-            Scroll to see button
-          </Typography>
+        <Toolbar sx={{ display: 'flex' }}>
+          <Link path="/">
+            <Title />
+          </Link>
+          <Box flex={1} />
+          {showButtonShop ? (
+            <Link path="/shop">
+              <Shop />
+            </Link>
+          ) : (
+            <FilterMenu />
+          )}
+          <SearchInput />
+          {showButtonTheme && (
+            <ThemeButton sx={{ color: '#fff', marginLeft: '5px' }} />
+          )}
         </Toolbar>
-      </AppBar>
+      </MuiBar>
       <Toolbar id="back-to-top-anchor" />
-      <Container>
-        <Box sx={{ my: 2 }}>
-          {[...new Array(12)]
-            .map(
-              () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`,
-            )
-            .join('\n')}
-        </Box>
-      </Container>
-      <ScrollTop {...props}>
-        <Fab color="secondary" size="small" aria-label="scroll back to top">
-          <KeyboardArrowUpIcon />
-        </Fab>
-      </ScrollTop>
-    </React.Fragment>
+    </>
   );
-}
+};
+
+export default AppBar;

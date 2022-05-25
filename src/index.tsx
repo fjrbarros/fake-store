@@ -3,6 +3,13 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import CssBaseline from '@mui/material/CssBaseline';
 import CustomTheme from './theme';
+import { Provider } from 'react-redux';
+import { modeDark, modeLight } from './store/themeMode';
+import store from './store';
+
+const theme = localStorage.getItem('theme');
+
+store.dispatch(theme === 'dark' ? modeDark() : modeLight());
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -10,8 +17,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <CssBaseline />
-    <CustomTheme>
-      <App />
-    </CustomTheme>
+    <Provider store={store}>
+      <CustomTheme>
+        <App />
+      </CustomTheme>
+    </Provider>
   </React.StrictMode>,
 );
+
+/* eslint-disable no-debugger */
+// debugger;
