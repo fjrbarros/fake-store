@@ -1,12 +1,15 @@
-import { experimentalStyled as styled } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
-const WrapperStyle = styled(Box)`
+const WrapperStyleBox = styled(Box)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#121212' : '#ffffff',
+}));
+
+const WrapperStyle = styled(WrapperStyleBox)`
   padding: 15px;
   border-radius: 6px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   position: relative;
-  margin: 20px auto;
   &:hover .container-image {
     top: -40px;
   }

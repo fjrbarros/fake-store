@@ -9,6 +9,7 @@ const ContainerImageStyle = styled(Box)`
   width: 100%;
   padding: 15px;
   transition: all 0.2s ease-in-out;
+  height: 50%;
 `;
 
 interface Props {
@@ -26,6 +27,7 @@ const ContainerImage: React.FC<Props> = ({ src, alt }) => {
           width: '100%',
           transition: 'all 0.2s ease-in-out',
           borderRadius: '6px',
+          height: '100%',
         }}
       />
     </ContainerImageStyle>

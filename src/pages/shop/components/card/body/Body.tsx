@@ -2,7 +2,7 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 const BodyStyle = styled(Box)`
-  padding-top: 150%;
+  padding-top: 104%;
 `;
 
 interface Props {
