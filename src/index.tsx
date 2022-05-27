@@ -24,6 +24,3 @@ root.render(
     </Provider>
   </React.StrictMode>,
 );
-
-/* eslint-disable no-debugger */
-// debugger;

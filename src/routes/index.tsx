@@ -1,6 +1,5 @@
 import { BrowserRouter, Routes as RouteWrapper, Route } from 'react-router-dom';
-import Home from '../pages/home/Home';
-import Shop from '../pages/shop/Shop';
+import { Home, Shop, Cart } from '../pages';
 
 const Routes = () => {
   return (
@@ -8,6 +7,7 @@ const Routes = () => {
       <RouteWrapper>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/cart" element={<Cart />} />
       </RouteWrapper>
     </BrowserRouter>
   );

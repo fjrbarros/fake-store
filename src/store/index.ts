@@ -2,11 +2,15 @@ import { Action, configureStore, ThunkAction } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import themeMode from './themeMode';
 import shop from './shop';
+import cart from './cart';
+import drawer from './drawer';
 
 export const store = configureStore({
   reducer: {
     themeMode,
     shop,
+    cart,
+    drawer,
   },
 });
 

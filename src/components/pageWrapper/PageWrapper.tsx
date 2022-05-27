@@ -1,10 +1,12 @@
-import { ScrollTop, AppBar } from '..';
+import { ScrollTop, AppBar, Drawer } from '..';
 
 interface Props {
   appBarBgColor?: string;
   children?: React.ReactNode;
   showButtonTheme?: boolean;
   showButtonShop?: boolean;
+  showButtonCart?: boolean;
+  showSearchInput?: boolean;
 }
 
 const PageWrapper: React.FC<Props> = ({
@@ -12,6 +14,8 @@ const PageWrapper: React.FC<Props> = ({
   appBarBgColor,
   showButtonTheme,
   showButtonShop,
+  showButtonCart,
+  showSearchInput,
 }) => {
   return (
     <>
@@ -19,8 +23,11 @@ const PageWrapper: React.FC<Props> = ({
         appBarBgColor={appBarBgColor}
         showButtonTheme={showButtonTheme}
         showButtonShop={showButtonShop}
+        showButtonCart={showButtonCart}
+        showSearchInput={showSearchInput}
       />
       {children}
+      <Drawer />
       <ScrollTop />
     </>
   );

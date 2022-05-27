@@ -35,6 +35,7 @@ const ScrollTop: React.FC = () => {
           size="small"
           aria-label="scroll back to top"
           sx={{
+            color: '#fff',
             background: '#383838',
             '&:hover': {
               background: '#262525',

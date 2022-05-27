@@ -11,9 +11,8 @@ interface Prop {
   product: IProductData;
 }
 
-const Card: React.FC<Prop> = ({
-  product: { image, title, category, description },
-}) => {
+const Card: React.FC<Prop> = ({ product }) => {
+  const { image, title, category, description } = product;
   return (
     <Wrapper>
       <ContainerImage src={image} alt={title} />
@@ -21,7 +20,7 @@ const Card: React.FC<Prop> = ({
         <Category category={category} />
         <TitleProduct title={title} />
         <Description description={description} />
-        <Footer />
+        <Footer product={product} />
       </Body>
     </Wrapper>
   );

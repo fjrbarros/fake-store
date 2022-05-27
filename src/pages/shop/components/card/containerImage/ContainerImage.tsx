@@ -1,5 +1,6 @@
-import { experimentalStyled as styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import { Img } from '../../../../../components';
+import Box from '@mui/material/Box';
 
 const ContainerImageStyle = styled(Box)`
   position: absolute;
@@ -9,7 +10,7 @@ const ContainerImageStyle = styled(Box)`
   width: 100%;
   padding: 15px;
   transition: all 0.2s ease-in-out;
-  height: 50%;
+  height: 350px;
 `;
 
 interface Props {
@@ -20,16 +21,7 @@ interface Props {
 const ContainerImage: React.FC<Props> = ({ src, alt }) => {
   return (
     <ContainerImageStyle className="container-image">
-      <img
-        src={src}
-        alt={alt}
-        style={{
-          width: '100%',
-          transition: 'all 0.2s ease-in-out',
-          borderRadius: '6px',
-          height: '100%',
-        }}
-      />
+      <Img src={src} alt={alt} />
     </ContainerImageStyle>
   );
 };

@@ -6,7 +6,12 @@ import About from './components/about/About';
 
 const Home: React.FC = () => {
   return (
-    <PageWrapper appBarBgColor="#000000" showButtonTheme={false}>
+    <PageWrapper
+      appBarBgColor="#000000"
+      showButtonTheme={false}
+      showSearchInput={false}
+      showButtonCart={false}
+    >
       <Banner />
       <NewArrivals />
       <Categorie />

@@ -1,4 +1,4 @@
-import { PageWrapper, Toast, Loading } from '../../components';
+import { PageWrapper, Toast, Loading, PaperWrapper } from '../../components';
 import { useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import { useEffect } from 'react';
@@ -10,10 +10,10 @@ import Grid from './components/grid/Grid';
 
 const Shop: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
-  const {
-    filterCategory,
-    products: { data, error, loading },
-  } = useSelector((data: RootState) => data.shop);
+  const { filterCategory, products } = useSelector(
+    (data: RootState) => data.shop,
+  );
+  const { data, error, loading } = products;
 
   useEffect(() => {
     if (!data.length && !filterCategory.length) {
@@ -23,11 +23,13 @@ const Shop: React.FC = () => {
 
   return (
     <PageWrapper showButtonShop={false}>
-      <Grid>
-        {data.map(product => (
-          <Card product={product} key={product.id} />
-        ))}
-      </Grid>
+      <PaperWrapper>
+        <Grid sx={{ padding: '30px 15px' }}>
+          {data.map(product => (
+            <Card product={product} key={product.id} />
+          ))}
+        </Grid>
+      </PaperWrapper>
       <Toast
         open={Boolean(error)}
         severity="error"

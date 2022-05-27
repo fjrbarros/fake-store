@@ -1,5 +1,5 @@
 export type IRating = {
-  reate: number;
+  rate: number;
   count: number;
 };
 

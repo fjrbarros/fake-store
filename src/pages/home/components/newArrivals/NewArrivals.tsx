@@ -29,8 +29,12 @@ const NewArrivals: React.FC = () => {
           },
         })}
       >
-        <ResponsiveText up="4vw" down="5vw" text="new arrivals" />
-        {/* <ResponsiveText up="3vw" down="4vw" text="shop now" /> */}
+        <ResponsiveText
+          up="4vw"
+          down="5vw"
+          text="new arrivals"
+          textTransform="uppercase"
+        />
       </Box>
 
       <Box

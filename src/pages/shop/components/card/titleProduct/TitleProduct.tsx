@@ -1,4 +1,4 @@
-import { experimentalStyled as styled } from '@mui/material/styles';
+import { styled } from '@mui/material';
 import { Box, Typography } from '@mui/material';
 
 const TitleProductStyle = styled(Box)`

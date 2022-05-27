@@ -1,4 +1,4 @@
-export { default as SearchInput } from './input/SearchInput';
+export { default as SearchInput } from './input/SearchInput/SearchInput';
 export { default as ScrollTop } from './scrollTop/ScrollTop';
 export { default as AppBar } from './appBar/AppBar';
 export { default as PageWrapper } from './pageWrapper/PageWrapper';
@@ -6,3 +6,7 @@ export { default as ResponsiveText } from './text/ResponsiveText';
 export { default as Link } from './link/Link';
 export { default as Toast } from './toast/Toast';
 export { default as Loading } from './loading/Loading';
+export { default as Drawer } from './drawer/Drawer';
+export { default as Img } from './img/Img';
+export { default as QuantityInput } from './input/quantityInput/QuantityInput';
+export { default as PaperWrapper } from './paperWrapper/PaperWrapper';

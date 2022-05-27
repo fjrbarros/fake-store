@@ -1,24 +1,21 @@
-import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import { SxProps } from '@mui/material';
+import Paper from '@mui/material/Paper';
 
-const GridStyle = styled(Paper)(({ theme }) => ({
+const GridStyle = styled(Paper)(() => ({
   display: 'grid',
   gridTemplateColumns: ' repeat(auto-fill, minmax(250px, 1fr))',
   gridGap: '15px',
-  padding: '30px 15px',
-  borderRadius: '0px',
-  minHeight: `calc(100vh - ${theme.mixins.toolbar.minHeight})`,
-  [theme.breakpoints.down(600)]: {
-    minHeight: `calc(100vh - 60px)`,
-  },
+  boxShadow: 'none',
 }));
 
 interface Props {
   children: React.ReactNode;
+  sx?: SxProps;
 }
 
-const Grid: React.FC<Props> = ({ children }) => {
-  return <GridStyle>{children}</GridStyle>;
+const Grid: React.FC<Props> = ({ children, sx }) => {
+  return <GridStyle sx={sx}>{children}</GridStyle>;
 };
 
 export default Grid;

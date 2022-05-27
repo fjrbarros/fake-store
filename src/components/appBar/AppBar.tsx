@@ -1,20 +1,24 @@
 import { SearchInput, Link } from '..';
 import { AppBar as MuiBar } from '@mui/material';
+import { Title, Shop, FilterMenu, ThemeButton, CartButton } from './components';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import Box from '@mui/material/Box';
-import { Title, Shop, FilterMenu, ThemeButton } from './components';
 
 interface Props {
   appBarBgColor?: string;
   showButtonTheme?: boolean;
   showButtonShop?: boolean;
+  showButtonCart?: boolean;
+  showSearchInput?: boolean;
 }
 
 const AppBar: React.FC<Props> = ({
   appBarBgColor = '',
   showButtonTheme = true,
   showButtonShop = true,
+  showButtonCart = true,
+  showSearchInput = true,
 }) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -39,10 +43,11 @@ const AppBar: React.FC<Props> = ({
           ) : (
             <FilterMenu />
           )}
-          <SearchInput />
+          {showSearchInput && <SearchInput />}
           {showButtonTheme && (
             <ThemeButton sx={{ color: '#fff', marginLeft: '5px' }} />
           )}
+          {showButtonCart && <CartButton />}
         </Toolbar>
       </MuiBar>
       <Toolbar id="back-to-top-anchor" />
