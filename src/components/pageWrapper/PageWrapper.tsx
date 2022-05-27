@@ -7,6 +7,7 @@ interface Props {
   showButtonShop?: boolean;
   showButtonCart?: boolean;
   showSearchInput?: boolean;
+  afterChangeSearchInput?: (value: string) => void;
 }
 
 const PageWrapper: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const PageWrapper: React.FC<Props> = ({
   showButtonShop,
   showButtonCart,
   showSearchInput,
+  afterChangeSearchInput,
 }) => {
   return (
     <>
@@ -25,6 +27,7 @@ const PageWrapper: React.FC<Props> = ({
         showButtonShop={showButtonShop}
         showButtonCart={showButtonCart}
         showSearchInput={showSearchInput}
+        afterChangeSearchInput={afterChangeSearchInput}
       />
       {children}
       <Drawer />

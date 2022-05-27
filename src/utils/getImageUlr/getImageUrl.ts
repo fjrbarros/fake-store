@@ -11,7 +11,7 @@ export const imageUrl = {
     'https://cdn.pixabay.com/photo/2018/12/27/14/19/jewel-3897719_1280.jpg',
 };
 
-export const getImageUrl = (category = ''): string => {
+const getImageUrl = (category = ''): string => {
   if (category.toLowerCase() === 'electronics') {
     return imageUrl.eletronics;
   }
@@ -30,3 +30,5 @@ export const getImageUrl = (category = ''): string => {
 
   return imageUrl.default;
 };
+
+export default getImageUrl;

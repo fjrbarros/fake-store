@@ -10,14 +10,15 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Tooltip from '@mui/material/Tooltip';
-import { QuantityInput } from '../../../../../components';
+import { HighLight, QuantityInput } from '../../../../../components';
 import { useSelector } from 'react-redux';
 
 interface Props {
   product: IProductData;
+  toHighLight?: string;
 }
 
-const CardFooter: React.FC<Props> = ({ product }) => {
+const CardFooter: React.FC<Props> = ({ product, toHighLight }) => {
   const { price, rating } = product;
   const [quantity, setQuantity] = useState<number>(0);
   const dispatch: AppDispatch = useDispatch();
@@ -34,7 +35,8 @@ const CardFooter: React.FC<Props> = ({ product }) => {
       <Stack direction="row" justifyContent="space-between" spacing={1}>
         <Stack direction="column" alignItems="center" spacing={1}>
           <Typography component="span" className="price">
-            US$ {price}
+            US${' '}
+            <HighLight toHighLight={toHighLight}>{price.toString()}</HighLight>
           </Typography>
           <Rating
             value={rating.rate}

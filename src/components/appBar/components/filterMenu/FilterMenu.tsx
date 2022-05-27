@@ -52,6 +52,9 @@ const FilterMenu: React.FC = () => {
         sx={{
           color: '#fff',
           border: 'none',
+          padding: '8px',
+          borderRadius: '50%',
+          minWidth: '0',
           '&:hover': {
             border: 'none',
           },
@@ -70,14 +73,13 @@ const FilterMenu: React.FC = () => {
             padding: '5px',
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            width: '230px',
             mt: 1.5,
             '&:before': {
               content: '""',
               display: 'block',
               position: 'absolute',
               top: 0,
-              right: 25,
+              right: 13,
               width: 10,
               height: 10,
               bgcolor: 'background.paper',
@@ -99,9 +101,6 @@ const FilterMenu: React.FC = () => {
                   onClick={() => handleClickMenuItem(category)}
                   sx={{
                     marginBottom: '10px',
-                    // borderRadius: '30px',
-                    // border: '1px solid',
-                    // borderColor: itemFilter ? 'red' : 'transparent',
                     boxShadow: itemFilter
                       ? '0px 3px 3px -2px rgb(0 0 0 / 20%), 0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%)'
                       : 'none',
@@ -110,7 +109,9 @@ const FilterMenu: React.FC = () => {
                   <ListItemText sx={{ textTransform: 'uppercase' }}>
                     {category}
                   </ListItemText>
-                  {itemFilter && <CheckIcon sx={{ marginLeft: '10px' }} />}
+                  <CheckIcon
+                    sx={{ marginLeft: '10px', opacity: itemFilter ? 1 : 0 }}
+                  />
                 </MenuItem>
               );
             })}

@@ -9,18 +9,20 @@ import Wrapper from './wrapper/Wrapper';
 
 interface Prop {
   product: IProductData;
+  toHighLight?: string;
 }
 
-const Card: React.FC<Prop> = ({ product }) => {
+const Card: React.FC<Prop> = ({ product, toHighLight }) => {
   const { image, title, category, description } = product;
+
   return (
     <Wrapper>
       <ContainerImage src={image} alt={title} />
       <Body>
         <Category category={category} />
-        <TitleProduct title={title} />
-        <Description description={description} />
-        <Footer product={product} />
+        <TitleProduct title={title} toHighLight={toHighLight} />
+        <Description description={description} toHighLight={toHighLight} />
+        <Footer product={product} toHighLight={toHighLight} />
       </Body>
     </Wrapper>
   );

@@ -1,6 +1,7 @@
 import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { HighLight } from '../../../../../components';
 
 const DescriptionStyle = styled(Box)`
   text-align: center;
@@ -19,12 +20,15 @@ const DescriptionStyle = styled(Box)`
 
 interface Props {
   description: string;
+  toHighLight?: string;
 }
 
-const Description: React.FC<Props> = ({ description }) => {
+const Description: React.FC<Props> = ({ description, toHighLight }) => {
   return (
     <DescriptionStyle>
-      <Typography>{description}</Typography>
+      <Typography>
+        <HighLight toHighLight={toHighLight}>{description}</HighLight>
+      </Typography>
     </DescriptionStyle>
   );
 };

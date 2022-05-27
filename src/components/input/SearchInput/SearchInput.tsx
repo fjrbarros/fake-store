@@ -1,3 +1,5 @@
+import { useDebounce } from '../../../utils';
+import { useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import InputBase from '@mui/material/InputBase';
@@ -30,6 +32,9 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: 'inherit',
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+  },
   '& .MuiInputBase-input': {
     padding: theme.spacing(1, 1, 1, 0),
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
@@ -41,13 +46,23 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         width: '20ch',
       },
     },
-    [theme.breakpoints.down('sm')]: {
-      width: '10ch',
-    },
   },
 }));
 
-const SearchInput: React.FC = () => {
+interface Props {
+  afterChangeSearchInput?: (value: string) => void;
+}
+
+const SearchInput: React.FC<Props> = ({ afterChangeSearchInput }) => {
+  const [value, setValue] = useState<string>('');
+  const debouncedValue = useDebounce<string>(value);
+
+  useEffect(() => {
+    if (afterChangeSearchInput) {
+      afterChangeSearchInput(debouncedValue);
+    }
+  }, [debouncedValue, afterChangeSearchInput]);
+
   return (
     <Search>
       <SearchIconWrapper>
@@ -56,8 +71,10 @@ const SearchInput: React.FC = () => {
       <StyledInputBase
         placeholder="Search…"
         inputProps={{ 'aria-label': 'search' }}
+        value={value}
+        onChange={e => setValue(e.target.value)}
         endAdornment={
-          <IconButton sx={{ color: '#fff' }}>
+          <IconButton sx={{ color: '#fff' }} onClick={() => setValue('')}>
             <CloseIcon />
           </IconButton>
         }

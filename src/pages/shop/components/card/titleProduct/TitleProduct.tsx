@@ -1,5 +1,7 @@
+import { HighLight } from '../../../../../components';
 import { styled } from '@mui/material';
-import { Box, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 const TitleProductStyle = styled(Box)`
   text-align: center;
@@ -16,12 +18,15 @@ const TitleProductStyle = styled(Box)`
 
 interface Props {
   title: string;
+  toHighLight?: string;
 }
 
-const TitleProduct: React.FC<Props> = ({ title }) => {
+const TitleProduct: React.FC<Props> = ({ title, toHighLight }) => {
   return (
     <TitleProductStyle>
-      <Typography component="h3">{title}</Typography>
+      <Typography component="h3">
+        <HighLight toHighLight={toHighLight}>{title}</HighLight>
+      </Typography>
     </TitleProductStyle>
   );
 };

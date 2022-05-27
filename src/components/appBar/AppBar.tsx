@@ -1,5 +1,5 @@
 import { SearchInput, Link } from '..';
-import { AppBar as MuiBar } from '@mui/material';
+import { AppBar as MuiBar, Stack } from '@mui/material';
 import { Title, Shop, FilterMenu, ThemeButton, CartButton } from './components';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
@@ -11,6 +11,7 @@ interface Props {
   showButtonShop?: boolean;
   showButtonCart?: boolean;
   showSearchInput?: boolean;
+  afterChangeSearchInput?: (value: string) => void;
 }
 
 const AppBar: React.FC<Props> = ({
@@ -19,6 +20,7 @@ const AppBar: React.FC<Props> = ({
   showButtonShop = true,
   showButtonCart = true,
   showSearchInput = true,
+  afterChangeSearchInput,
 }) => {
   const trigger = useScrollTrigger({
     disableHysteresis: true,
@@ -31,23 +33,66 @@ const AppBar: React.FC<Props> = ({
         elevation={trigger ? 4 : 0}
         sx={{ backgroundColor: appBarBgColor }}
       >
-        <Toolbar sx={{ display: 'flex' }}>
-          <Link path="/">
-            <Title />
-          </Link>
-          <Box flex={1} />
-          {showButtonShop ? (
-            <Link path="/shop">
-              <Shop />
-            </Link>
-          ) : (
-            <FilterMenu />
-          )}
-          {showSearchInput && <SearchInput />}
-          {showButtonTheme && (
-            <ThemeButton sx={{ color: '#fff', marginLeft: '5px' }} />
-          )}
-          {showButtonCart && <CartButton />}
+        <Toolbar>
+          <Box
+            flex={1}
+            sx={theme => ({
+              display: 'flex',
+              [theme.breakpoints.down(600)]: {
+                display: 'block',
+                padding: '10px',
+              },
+            })}
+          >
+            <Box display="flex" flex={1} alignItems="center">
+              <Link path="/">
+                <Title />
+              </Link>
+              <Box flex={1} />
+              <Box
+                sx={theme => ({
+                  [theme.breakpoints.down(600)]: {
+                    display: 'none',
+                  },
+                })}
+              >
+                {showSearchInput && (
+                  <SearchInput
+                    afterChangeSearchInput={afterChangeSearchInput}
+                  />
+                )}
+              </Box>
+              <Stack
+                component="nav"
+                spacing={1}
+                direction="row"
+                padding="0 5px"
+                alignItems="center"
+              >
+                {showButtonShop ? (
+                  <Link path="/shop">
+                    <Shop />
+                  </Link>
+                ) : (
+                  <FilterMenu />
+                )}
+                {showButtonTheme && <ThemeButton sx={{ color: '#fff' }} />}
+                {showButtonCart && <CartButton />}
+              </Stack>
+            </Box>
+            <Box
+              sx={theme => ({
+                display: 'none',
+                [theme.breakpoints.down(600)]: {
+                  display: 'block',
+                },
+              })}
+            >
+              {showSearchInput && (
+                <SearchInput afterChangeSearchInput={afterChangeSearchInput} />
+              )}
+            </Box>
+          </Box>
         </Toolbar>
       </MuiBar>
       <Toolbar id="back-to-top-anchor" />

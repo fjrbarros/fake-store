@@ -1,4 +1,4 @@
-import { getImageUrl, imageUrl } from './getImageUrl';
+import getImageUrl, { imageUrl } from './getImageUrl';
 
 describe.each`
   description          | value                | expected
