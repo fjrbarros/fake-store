@@ -5,7 +5,7 @@ interface Props {
   toHighLight?: string;
 }
 
-const HighLight: React.FC<Props> = ({ children = '', toHighLight }) => {
+const HighLight: React.FC<Props> = ({ children, toHighLight }) => {
   const regex = new RegExp(`(${toHighLight})`, 'i');
 
   return (
