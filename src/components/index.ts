@@ -7,7 +7,7 @@ export { default as Link } from './link/Link';
 export { default as Toast } from './toast/Toast';
 export { default as Loading } from './loading/Loading';
 export { default as Drawer } from './drawer/Drawer';
-export { default as Img } from './image/Img';
+export { default as Img } from './img/Img';
 export { default as QuantityInput } from './input/quantityInput/QuantityInput';
 export { default as PaperWrapper } from './paperWrapper/PaperWrapper';
 export { default as HighLight } from './highLight/HighLight';
