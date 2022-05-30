@@ -48,9 +48,9 @@ ps: você precisa ter o [Git](https://git-scm.com/) instalado em sua máquina.
    
    uma vez na raiz do projeto e com npm ou yarn instalado.
    
-   execute o comando `yarn install`, isso vai ler e baixar todos pacotes que tem no arquivo package.json.
+   execute o comando `yarn install` ou `npm run install`, isso vai ler e baixar todos pacotes que tem no arquivo package.json.
    
-   execute o comando `yarn start`, isso vai iniciar o projeto, apos isso, acesse a url http://localhost:3000/
+   execute o comando `yarn start` ou `npm run start`, isso vai iniciar o projeto, apos isso, acesse a url http://localhost:3000/
    
 3. Testes (em desenvolvimento).
    - Ao executar o comando `yarn test` todos os testes da aplicação serão executados.
