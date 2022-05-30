@@ -1,21 +1,55 @@
+import { useEffect } from 'react';
 import {
   changeFilterCategory,
   resetProductData,
   resetFilterCategory,
 } from '../../../../store/shop';
 import { ResponsiveText } from '../../../../components';
+import { styled } from '@mui/material';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '../../../../store';
 import { useNavigate } from 'react-router-dom';
-import { fetchProductsByCategory } from '../../../../api';
+import { fetchCategories, fetchProductsByCategory } from '../../../../api';
 import { getImageUrl } from '../../../../utils';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
+const Container = styled(Box)(() => ({
+  height: '100%',
+  width: '100%',
+  backgroundColor: 'black',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  backgroundPosition: 'center',
+  transition: 'all 1s',
+  '&:hover': {
+    transform: 'scale(1.2)',
+    '&>div': {
+      display: 'flex',
+    },
+  },
+}));
+
+const ContainerShop = styled(Box)(() => ({
+  display: 'none',
+  height: '100%',
+  width: '100%',
+  background: 'rgb(0,0,0,0.5)',
+  alignItems: 'center',
+  justifyContent: 'center',
+  flexDirection: 'column',
+}));
+
 const Categories: React.FC = () => {
+  const navigate = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const { data } = useSelector((data: RootState) => data.shop.categories);
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!data.length) {
+      dispatch(fetchCategories());
+    }
+  }, [dispatch, data.length]);
 
   const handleClickShopNow = (category: string) => {
     dispatch(resetFilterCategory());
@@ -40,41 +74,10 @@ const Categories: React.FC = () => {
         return (
           <Box
             key={category}
-            sx={{
-              width: '100%',
-              height: '300px',
-              overflow: 'hidden',
-            }}
+            sx={{ width: '100%', height: '300px', overflow: 'hidden' }}
           >
-            <Box
-              sx={{
-                height: '100%',
-                width: '100%',
-                backgroundColor: 'black',
-                backgroundImage: `url(${urlImage})`,
-                backgroundRepeat: 'no-repeat',
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                transition: 'all 1s',
-                '&:hover': {
-                  transform: 'scale(1.2)',
-                  '&>div': {
-                    display: 'flex',
-                  },
-                },
-              }}
-            >
-              <Box
-                sx={{
-                  display: 'none',
-                  height: '100%',
-                  width: '100%',
-                  background: 'rgb(0,0,0,0.5)',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  flexDirection: 'column',
-                }}
-              >
+            <Container sx={{ backgroundImage: `url(${urlImage})` }}>
+              <ContainerShop>
                 <ResponsiveText
                   up="1.5vw"
                   down="4vw"
@@ -94,8 +97,8 @@ const Categories: React.FC = () => {
                 >
                   Shop now
                 </Button>
-              </Box>
-            </Box>
+              </ContainerShop>
+            </Container>
           </Box>
         );
       })}
