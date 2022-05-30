@@ -1,46 +1,59 @@
-# Getting Started with Create React App
+# Fake Store
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Aplicação que simula uma loja on-line :desktop_computer:
 
-## Available Scripts
+### Algumas tecnologias utilizadas:
+ - ReactJs
+   - redux-toolkit, react-redux, react-router.
+   - TypeScript
+   - Axios.
+   - Jest, react-testing-library
+ - [Material.ui](https://material-ui.com/) (para components)
+ 
+ A aplicação pode ser acessada pelo link: https://fake-store-demo.herokuapp.com/
 
-In the project directory, you can run:
+### Esta aplicação possui apenas 4 páginas:
+  - Home (path: /)
 
-### `npm start`
+  ![image](https://user-images.githubusercontent.com/44577035/170900429-ed2fd7be-9ae8-4d77-a284-25997ca2877a.png)
+  - Shop (path: /shop)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+  ![image](https://user-images.githubusercontent.com/44577035/170900637-930a01f8-73b9-4a61-8dac-aafcb412a611.png)
+  
+  - Cart (path: /cart)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+  ![image](https://user-images.githubusercontent.com/44577035/170901312-b57188d1-6453-4f08-a54c-5b0c86cdc14b.png)
 
-### `npm test`
+  - Not found (path: /*)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  ![image](https://user-images.githubusercontent.com/44577035/170901347-87f84461-34f1-4046-8ee7-e478fcf518e3.png)
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Passos para utilizar esta aplicação:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ps: você precisa ter o [Git](https://git-scm.com/) instalado em sua máquina.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Fazer o clone do repositorio. :octocat:	
+    > git clone https&#xfeff;:https://github.com/fjrbarros/fake-store.git
 
-### `npm run eject`
+    este comando vai fazer um clone do repositorio para uma pasta com o nome `fake-store`,
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    para acessar usar o comando `cd meu_tcc_front`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Executar a aplicação. :arrow_forward:	 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Para executar a aplicação pode ser utilizado duas formas, usando npm ou yarn.
+    
+   Você pode instalar o [Node](https://nodejs.org/en/), o npm ja vem junto.
+   
+   uma vez na raiz do projeto e com npm ou yarn instalado.
+   
+   execute o comando `yarn install` ou `npm run install`, isso vai ler e baixar todos pacotes que tem no arquivo package.json.
+   
+   execute o comando `yarn start` ou `npm run start`, isso vai iniciar o projeto, apos isso, acesse a url http://localhost:3000/
+   
+3. Testes (em desenvolvimento).
+   - Ao executar o comando `yarn test` todos os testes da aplicação serão executados.
+   - Ao executar o comando `yarn coverage` será executado os testes de cobertura de toda aplicação.
+   
+Divirta-se :grinning:
