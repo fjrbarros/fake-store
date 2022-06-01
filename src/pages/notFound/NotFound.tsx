@@ -33,7 +33,7 @@ const NotFound: React.FC = () => {
         <ResponsiveText up="6vw" down="6vw" text="404" />
         <ResponsiveText up="3vw" down="3vw" text="Whoops! Page not found!" />
         <ButtonHome sx={{}} onClick={() => navigate('/')}>
-          Dashboard
+          Home
         </ButtonHome>
       </Box>
     </Container>
