@@ -3,11 +3,9 @@ import QuantityInput from './QuantityInput';
 
 describe('<QuantityInput />', () => {
   it('should change value and execute onChange', () => {
-    const mockChange = jest.fn();
+    const spy = jest.fn();
 
-    const { container } = render(
-      <QuantityInput value={2} onChange={mockChange} />,
-    );
+    const { container } = render(<QuantityInput value={2} onChange={spy} />);
 
     const input = container.querySelector(
       'div > div > div > input',
@@ -19,6 +17,6 @@ describe('<QuantityInput />', () => {
       target: { value: 123 },
     });
 
-    expect(mockChange).toBeCalled();
+    expect(spy).toBeCalled();
   });
 });
