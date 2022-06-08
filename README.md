@@ -34,11 +34,11 @@
 ps: você precisa ter o [Git](https://git-scm.com/) instalado em sua máquina.
 
 1. Fazer o clone do repositorio. :octocat:	
-    > git clone https&#xfeff;:https://github.com/fjrbarros/fake-store.git
+    > git clone https&#xfeff;://github.com/fjrbarros/fake-store.git
 
     este comando vai fazer um clone do repositorio para uma pasta com o nome `fake-store`,
 
-    para acessar usar o comando `cd meu_tcc_front`
+    para acessar usar o comando `cd fake-store`
 
 2. Executar a aplicação. :arrow_forward:	 
 
