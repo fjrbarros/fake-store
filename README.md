@@ -10,7 +10,7 @@
    - Jest, react-testing-library
  - [Material.ui](https://material-ui.com/) (para components)
  
- A aplicação pode ser acessada pelo link: https://fake-store-demo.herokuapp.com/
+ A aplicação pode ser acessada pelo link: [fake-store](https://fjr-fake-store.netlify.app/)
 
 ### Esta aplicação possui apenas 4 páginas:
   - Home (path: /)
